@@ -19,8 +19,9 @@ import {
   ConfigButton,
   Text,
   StatValue,
-  ProgressBlock,
-  ConfigText
+  ConfigText,
+  ProgressBlock
+  
 } from './styles';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
