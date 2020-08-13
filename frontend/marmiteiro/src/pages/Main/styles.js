@@ -2,12 +2,20 @@ import styled from 'styled-components';
 import LinearGradient from 'react-native-linear-gradient';
 
 
-export const Container = styled(LinearGradient).attrs({
-    colors: ['#FF7272', '#FFFF9E'],
-    start: {x:0, y:0},
-    end: {x:1, y:1}, 
-})`
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
+import * as gs from '~/assets/styles/app_style';
+
+
+export const ButtonIcon = styled(Icon).attrs(props => ({
+    name: props.name,
+    size: 75,
+    color: '#000'
+}))``;
+
+export const Container = styled.View`
     flex: 1;
+    background-color: ${gs.backgroudColor};
 `;
 
 export const Profile = styled.View`
@@ -36,7 +44,7 @@ export const Dados = styled.View`
 
 export const Title = styled.Text`
     font-size: 25px;
-    color: #fff
+    color: #000
     font-weight: bold;
 `;
 
@@ -45,6 +53,7 @@ export const ProgressBlock = styled.View`
     padding-top: 5px;
     flex: 5;
     align-items: center;
+    flex-wrap: wrap;
 `;
 
 export const ProgressBar = styled.View`
@@ -55,8 +64,6 @@ export const ProgressBar = styled.View`
 
 export const Description = styled.Text`
     margin: 5px;
-    
-    
     flex: 2;
 `;
 
@@ -82,7 +89,7 @@ export const StatText = styled.Text`
 export const StatValue = styled.Text`
     font-weight: bold;
     font-size: 20px;
-    color: #fff;
+    color: #000;
     padding: 5px;
 `;
 
@@ -103,14 +110,14 @@ export const MenuButton = styled.TouchableOpacity`
     
     align-items: center;
     justify-content: center;
-    
     margin: 5px;
     flex:1;
 `;
 
 export const Text = styled.Text`
-    color: #fff;
+    color: #000;
     font-weight: bold;
+    font-size: 20px;
 `;
 
 export const Config = styled.View`

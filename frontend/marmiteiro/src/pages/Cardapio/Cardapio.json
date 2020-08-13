@@ -1,0 +1,14 @@
+{
+    "tipo": "Variado",
+    "disponibilidade": {
+        "dataInicio":"01/08/2020 00:00:00",
+        "dataFim": "02/08/2020 00:00:00"
+    },
+    "pedido": {
+        "dataInicio": "01/08/2020 00:00:00",
+        "dataFim": "02/08/2020 00:00:00"
+    },
+    "pratos": [
+        {}
+    ]
+}

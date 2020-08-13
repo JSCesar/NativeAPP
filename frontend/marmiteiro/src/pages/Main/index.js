@@ -20,7 +20,8 @@ import {
   Text,
   StatValue,
   ConfigText,
-  ProgressBlock
+  ProgressBlock,
+  ButtonIcon
   
 } from './styles';
 
@@ -29,7 +30,7 @@ import Icon2 from 'react-native-vector-icons/EvilIcons';
 
 import * as Progress from 'react-native-progress';
 
-export default function Main() {
+export default function Main( { navigation } ) {
   return (
     <Container>
       <Profile>
@@ -43,9 +44,9 @@ export default function Main() {
           <ProgressBlock>
             <ProgressBar>
               <Progress.Bar progress={0.75} height={25} ></Progress.Bar>
-              <Icon name="grade" size={30} color="#fff200"></Icon>
+              <Icon name="favorite" size={30} color="#f13737"></Icon>
             </ProgressBar>
-            <Description>Maioria dos Pedidos Entregues. Falta Pouco!</Description>
+            <Description>Maioria dos pedidos entregues. Falta pouco!</Description>
           </ProgressBlock>
           <Stats>
             <Stat>
@@ -63,21 +64,21 @@ export default function Main() {
       <MenuList>
         <MenuLine>
           <MenuButton onPress={()=> {}}>
-            <Icon name="restaurant" size={100} color="#fff"></Icon>
+            <ButtonIcon  name="restaurant"/>
             <Text>Preparar</Text>
           </MenuButton>
-          <MenuButton onPress={()=> {}}>
-            <Icon name="room-service" size={100} color="#fff"></Icon>
+          <MenuButton onPress={()=> { navigation.navigate('Cardapio') }}>
+            <ButtonIcon  name="room-service"/>
             <Text>Cardapio</Text>
           </MenuButton>
         </MenuLine>
         <MenuLine>
           <MenuButton onPress={()=> {}}>
-            <Icon name="transfer-within-a-station" size={100} color="#fff"></Icon>
+            <ButtonIcon  name="transfer-within-a-station"/>
             <Text>Entregar</Text>
           </MenuButton>
           <MenuButton onPress={()=> {}}>
-            <Icon name="monetization-on" size={100} color="#fff"></Icon>
+            <ButtonIcon  name="monetization-on"/>
             <Text>Vendas</Text>
           </MenuButton>
         </MenuLine>
