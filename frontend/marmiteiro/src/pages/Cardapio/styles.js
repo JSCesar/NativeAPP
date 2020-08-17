@@ -16,7 +16,7 @@ export const Container = styled.View`
 `;
 
 export const PassosList = styled.View`
-    flex: 1;
+    flex: 3;
     flex-direction: column;
     justify-content: space-between;
 `;
@@ -25,20 +25,21 @@ export const Passos = styled.FlatList`
     flex: 1;
 `;
 
-export const Opcoes = styled.View`
-    flex: 1;
-    flex-direction: column;
-    padding: 5px;
-    margin:5px;
-    elevation: 2;
-`;
-
 export const PassoIcon = styled(Icon).attrs(props => ({
     color: gs.defaultFontColor,
     name: props.name,
     size: 30
 }))`
     padding: 10px;
+`;
+
+export const Opcoes = styled.View`
+    flex: 2;
+    flex-direction: column;
+    padding: 5px;
+    margin:5px;
+    elevation: 3;
+    background-color: #fff;
 `;
 
 export const Dados = styled.View`
@@ -51,8 +52,10 @@ export const Titulo = styled.Text`
     text-align: center;
     font-size: 20px;
     font-weight: bold;
-    color: ${gs.defaultFontColor};
+    color: ${ gs.defaultFontColor };
+    flex 1;
 `;
+
 export const Descricao = styled.Text``;
 
 export const Botoes = styled.View`
@@ -71,21 +74,23 @@ export const Botao = styled.TouchableOpacity`
     max-height: 45%;
     min-height: 40%;
     font-size: 20px;
-    background-color: transparent;
+    background-color: ${ props => (props.color == null ? 'transparent' : props.color) };
     flex-direction: row;
-    borderRadius: 15px;
+    borderRadius: 10px;
 `;
 
 export const BotaoHora = styled(Botao).attrs(props => ({
     onPress: props.onPress,
 }))`
     background-color: ${gs.secondaryColor};
+    
 `;
 
 export const Text = styled.Text`
-    color: ${ gs.defaultFontColor };
+    color: ${ props => props.color == null ? gs.defaultFontColor : props.color };
     font-weight: bold;
-    font-size: 15px;  
+    font-size: 15px; 
+    text-align: center;
 `;
 
 export const BotaoIcon = styled(Icon).attrs( props => ({

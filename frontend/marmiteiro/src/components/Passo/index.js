@@ -8,7 +8,7 @@ export default function Passo({  data  }) {
 
     return (
         <Container>
-            <PassosIcon name={ data.name } icon={ data.icon } ></PassosIcon>
+            <PassosIcon name={ data.name } status={ data.status }  ></PassosIcon>
             <Dados>
                 <Title>{ data.title }</Title>
                 <Descricao>{ data.descricao }</Descricao>

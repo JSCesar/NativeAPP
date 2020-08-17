@@ -5,6 +5,8 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 
 import { Container, PassosList, Passos, Opcoes,
     Botao, Botoes, Dados, Titulo, Descricao, Text, BotaoIcon } from '../../styles';
+import { TextHora } from './styles';
+
 import Opcao from '~/components/Opcao';
 import Passo from '~/components/Passo';
 
@@ -26,17 +28,25 @@ export default function CardapioDisponibilidade( props ) {
     const onChange = (event, selectedDate) => {
         const currentDate = selectedDate || date;
         setShow(Platform.OS === 'ios');
-        setDate(currentDate);
-        props.proximoPasso( { disponibilidade: currentDate } );
+        currentDate.setHours(0, 0, 0, 0);
+        //setDate(currentDate);
+        //console.tron.log(currentDate);
+        proximoPasso( currentDate );
     };
+
+    function proximoPasso( data ) {
+        let cardapio = props.cardapio;
+        cardapio.disponibilidade = data;
+        props.proximoPasso( cardapio );
+    }
 
     return (
         <Container>
             <PassosList>
                 <Passos
                     data={[
-                        {id: 1, title: "Tipo", descricao: "Escolha o Tipo de Cardápio", icon:"check-circle"},
-                        {id: 2, title: "Data da Entrega", descricao: "Escolher Data", icon:"question-circle" }
+                        {id: 1, ordem:1, title: "Tipo", descricao: `Cardápio: ${props.cardapio.tipo}`, status:true },
+                        {id: 2, ordem:2, title: "Data da Entrega", descricao: "Escolher Data", status:false  }
                     ]}
                     keyExtractor={item => String(item.id)}
                     renderItem={ ({ item }) => {
@@ -52,8 +62,8 @@ export default function CardapioDisponibilidade( props ) {
                 </Dados>
                 <Botoes>
                     <Botao onPress={showDatepicker} tipo="primary">
-                        <Text>{ date.toLocaleDateString('en-GB') }</Text>
-                        <BotaoIcon name="calendar" />
+                        <TextHora>{ date.toLocaleDateString('en-GB') }</TextHora>
+                        <BotaoIcon name="calendar" size={30} />
                     </Botao>
                 <View>
                     

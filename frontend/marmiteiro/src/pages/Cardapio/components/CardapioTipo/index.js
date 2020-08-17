@@ -9,8 +9,9 @@ import Passo from '~/components/Passo';
 export default function CardapioTipo( props ) {
 
     function proximoPasso( data ) {
-        const tipo = { tipo: data };
-        props.proximoPasso(tipo);
+        let cardapio = props.cardapio;
+        cardapio.tipo = data;
+        props.proximoPasso(cardapio);
     }
 
     function passoAnterior(data) {
@@ -23,7 +24,7 @@ export default function CardapioTipo( props ) {
             <PassosList>
                 <Passos
                     data={[
-                        { id: 1, title: "Tipo", descricao: "Escolha o Tipo de Cardápio", icon:"question-circle" }
+                        { id: 1, ordem:1, title: "Tipo", descricao: "Escolha o Tipo de Cardápio", status:false }
                     
                     ]}
                     keyExtractor={item => String(item.id)}
@@ -40,10 +41,10 @@ export default function CardapioTipo( props ) {
                     <Titulo>{ props.cardapio.tipo }</Titulo>
                 </Dados>
                 <Botoes>
-                    <Botao tipo="primary" onPress={() => { proximoPasso('VARIADO') }} >
+                    <Botao tipo="primary" onPress={() => { proximoPasso('Variado') }} >
                         <Text>Variado</Text>
                     </Botao>
-                    <Botao tipo="secondary" onPress={() => { passoAnterior('IGUAL') }} >
+                    <Botao tipo="secondary" onPress={() => { proximoPasso('Igual') }} >
                         <Text>Igual todos os dias</Text>
                     </Botao>
                 </Botoes>

@@ -30,8 +30,8 @@ export const Descricao = styled.Text`
 `;
 
 export const PassosIcon = styled(Icon).attrs(props => ({
-    color: gs.defaultFontColor,
-    name: props.icon,
+    color: props.status ? gs.primaryColor : gs.defaultFontColor,
+    name: props.status ? "check-circle" : "question-circle",
     size: 30,
     
 }))`

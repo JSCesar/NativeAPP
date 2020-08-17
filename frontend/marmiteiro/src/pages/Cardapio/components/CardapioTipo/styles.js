@@ -15,7 +15,7 @@ export const Container = styled.View`
 `;
 
 export const PassosList = styled.View`
-    flex: 1;
+    flex: 3;
     flex-direction: column;
     justify-content: space-between;
 `;
@@ -30,6 +30,7 @@ export const Opcoes = styled.View`
     padding: 5px;
     margin:5px;
     elevation: 2;
+    background-color: #fff;
 `;
 
 export const PassoIcon = styled(Icon).attrs(props => ({
@@ -69,7 +70,7 @@ export const Botao = styled.TouchableOpacity`
     min-height: 40%;
     font-size: 20px;
     background-color: ${ props => (props.tipo == "primary" ? gs.primaryColor : gs.secondaryColor ) }
-    borderRadius: 15px;
+    borderRadius: 10px;
 `;
 
 export const Text = styled.Text`
